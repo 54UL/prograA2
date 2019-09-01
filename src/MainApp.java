@@ -1,69 +1,41 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import Models.Persona;
+import DataStructures.HashTable;
 
-public class MainApp
+public class MainApp2
 {
-   public static List<int> GenerateHashCode(String[] NamesStrings)
-   {
-    int hashcode=0;
-    List<int>  hashTable= new List<int>();
-        for(int i =0;i <NamesStrings.length() ;i++)
-        {
-            for(int is; i< NamesStrings[i].length; i++)
-            {
-            hashcode +=(char)is[i];
-            }
-            hashTable.add(hascode);
-        }
-     return hashTable;
-   }
-
-   public static void IncrementAge(int []value)
-   {
-       value[0]++;
-   }
-   
-   public static void QuePasa( Persona ref)
-   {
-       //ref = new Persona();
-       ref.setName("juanito");
-   }
 
    public static void main(String[] args)
-   {
-       int test = 6;
-       int []arreglo;
-       arreglo = new int[5];
- 
-       Random rnd = new Random();
+   {     
+       HashTable tabla = new HashTable(13);
 
-        for(int i = 0; i< arreglo.length; i++)
-        {
-        arreglo[i] = rnd.nextInt();
-        System.out.println(arreglo[i]);
-       }
+       //Algoritmo, Menu: introducir, buscar
+       //Introducir: agregar al hash map el elemento actual
 
-       System.out.println("personas");
-       Persona [] personaArreglo = new Persona[10];
-       
-       personaArreglo[0] = new Persona("Saul",20,"aceves","montes");
-       personaArreglo[1] = new Persona("pablito",13,"paramo","deoca");
-       
-       
-       QuePasa(personaArreglo[0]);
+       List  personaArreglo = new ArrayList();
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("charly",20,"1","2"));
+       personaArreglo.add(new Persona("jose",20,"2","3"));
+       personaArreglo.add(new Persona("diego",20,"3","4"));
+       personaArreglo.add(new Persona("tijuanga",20,"4","5"));
      
-    for(int i = 0; i< 2; i++)
-    {
+      //para cada elemento de la lista de personas, insertarlo en la tabla
+       personaArreglo.forEach((i)->
+       {
+        tabla.Insert(i,((Persona)i).getName());
+       });
 
-    System.out.println(personaArreglo[i].getName());
-    personaArreglo[i].setName(personaArreglo[i].getName()+"alterado:"+i);
-    }
+       //Buscamos los elementos
+       List resultados = tabla.find("Saul");
 
     
+       resultados.forEach((i)->
+       {
+           System.out.println("resultados:"+((Persona)i).getName());
+       });
 
-     int []testArray = new int[5];
-     testArray[0]=666;
-
-    MainApp.IncrementAge(testArray);
-    System.out.print(testArray[0]);
    }
 }

@@ -1,28 +1,41 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import Models.Persona;
+import DataStructures.HashTable;
 
 public class MainApp2
 {
 
-   public static List<int> GenerateHashCode(String[] NamesStrings)
-   {
-    int hashcode=0;
-    List<int>  hashTable = new List<int>();
-        for(int i =0;i <NamesStrings.length ;i++)
-        {
-            for(int is; i< NamesStrings[i].length; i++)
-            {
-             hashcode +=(int)is[i];
-            }
-            hashTable.add(hashcode);
-        }
-     return hashTable;
-   }
-
-   
    public static void main(String[] args)
    {     
-       Persona [] personaArreglo = new Persona[10];
-       personaArreglo[0] = new Persona("Saul",20,"aceves","montes");
-       personaArreglo[1] = new Persona("pablito",13,"paramo","deoca");    
+     HashTable tabla = new HashTable(13);
+
+       //Algoritmo, Menu: introducir, buscar
+       //Introducir: agregar al hash map el elemento actual
+
+       List  personaArreglo = new ArrayList();
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("Saul",20,"aceves","montes"));
+       personaArreglo.add(new Persona("charly",20,"1","2"));
+       personaArreglo.add(new Persona("jose",20,"2","3"));
+       personaArreglo.add(new Persona("diego",20,"3","4"));
+       personaArreglo.add(new Persona("tijuanga",20,"4","5"));
+     
+     
+       personaArreglo.forEach((i)->
+       {
+        tabla.Insert(i,((Persona)i).getName());
+       });
+
+
+       List resultados = tabla.find("Saul");
+
+       
+       resultados.forEach((i)->
+       {
+           System.out.println("resultados:"+((Persona)i).getName());
+       });
+
    }
 }

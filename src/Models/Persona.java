@@ -1,14 +1,15 @@
+package Models;
+
 
 public class Persona
 {
-
-     Persona()
+    public Persona()
     {
 
 
     }
 
-    Persona(String name,int edad,String ap,String am)
+    public Persona(String name,int edad,String ap,String am)
     {
         nombre = name;
         this.edad = edad;

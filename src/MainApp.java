@@ -3,7 +3,7 @@ import java.util.List;
 import Models.Persona;
 import DataStructures.HashTable;
 
-public class MainApp2
+public class MainApp
 {
 
    public static void main(String[] args)

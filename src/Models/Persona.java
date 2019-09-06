@@ -1,12 +1,15 @@
 package Models;
-
+import java.util.Scanner;
 
 public class Persona
 {
     public Persona()
     {
 
-
+    }
+    public Persona(Scanner in)
+    {
+        GetValuesFromInput(in);
     }
 
     public Persona(String name,int edad,String ap,String am)
@@ -16,7 +19,17 @@ public class Persona
         this.am = am;
         this.ap = ap;
     }
-
+    public void GetValuesFromInput(Scanner input)
+    {
+        System.out.println("introduce el nombre");
+        nombre = input.getNext();
+        System.out.println("introduce el Apellido paterno");
+         nombre = input.getNext();
+        System.out.println("introduce el Apellido materno");
+         nombre = input.getNext();
+        System.out.println("introduce la edad");
+         nombre = input.getNext();
+    }
     public String getName()
     {
     return nombre;
@@ -41,7 +54,7 @@ public class Persona
     {
         this.nombre = newName;
     }
-
+    
     private String nombre,am,ap;
     private int edad;
 }

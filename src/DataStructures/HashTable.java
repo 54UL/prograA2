@@ -9,18 +9,22 @@ public class HashTable
   {
    m_tableSize = tableSz;
    m_hashTable = new Object[m_tableSize];
+   m_currentSize=0;
   }
   
-  public void Insert(Object obj,String Id)
+  public bool Insert(Object obj,String Id)
   {
-   int hashcode  = (int)GenerateHashCode(Id);
+     if(m_currentSize ==m_tableSize)
+     return true;
 
+   int hashcode  = (int)GenerateHashCode(Id);
    System.out.println("LOG: hashcode for:"+obj.toString()+" is: "+hashcode);
   
    if(m_hashTable[hashcode] == null)
    m_hashTable[hashcode] = new ArrayList();
 
    ((ArrayList) m_hashTable[hashcode]).add(obj);
+   m_currentSize++;
   }
 
   public List find(String ocurrence)
@@ -43,4 +47,5 @@ public class HashTable
  
   private Object[] m_hashTable;
   private int m_tableSize;
+  private int m_currentSize;
 }

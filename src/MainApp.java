@@ -1,57 +1,54 @@
 import Models.Persona;
 import DataStructures.HashTable;
-import java.util.*;
+import java.util.Scanner;
+import java.util.List;
+public class MainApp {
 
-public class MainApp
-{
-   
-    public static void findElement(HashTable tbl,Scanner in)
-    {
-        int findOption=0;
-        int countingPp=0;
-        List resultados = tbl.find(in.getNext());
+
+    public static void findElement(HashTable tbl, Scanner in) {
+        int findOption = 0;
+        int countingPp = 0;
+        List resultados = tbl.find(in.next());
         System.out.println("chose a record by index");
-        resultados.forEach((e)->
+        for(int i =0; i< resultados.size(); i++)
         {
-            System.out.println("indx:"+countingPp+" pp:"+e.getName()+"  "+e.getAp());
-            countingPp++;
-        }); 
-         System.out.println("select one to show info");
-         findOption = entrada.getNextInt();
-          
-         if(findOption>=resultados.length() || findOption <= 0)
-          System.out.println("check yourself m8");
-         else
-        {
-         Persona findedPp = resultados.get(findOption);
-           System.out.println("indx:"+countingPp+" pp:"
-        +findedPp.getName()+"  "+findedPp.getAp()+"  "+findedPp.getAm()+" age: "+findedPp.getEdad());
-        }   
+            Persona actualpp =(Persona) resultados.get(i);
+            System.out.println("indx:" + i + " pp:" + actualpp.getName() + "  " + actualpp.getAp());
+        }
+
+        findOption = in.nextInt();
+        System.out.println("select one to show info");
+
+        if (findOption >= resultados.size() || findOption < 0)
+            System.out.println("check yourself m8");
+        else {
+            Persona findedPp =(Persona) resultados.get(findOption);
+            System.out.println("indx:" + countingPp + " pp:" + findedPp.getName() + "  " + findedPp.getAp() + "  "
+                    + findedPp.getAm() + " age: " + findedPp.getEdad());
+        }
     }
 
-   public static void main(String[] args)
-   {     
-       HashTable tabla = new HashTable(13);
-       Scanner   entrada = new Scanner(System.in);
-       boolean running = true;
-       while(running)
-       {
-           System.out.println("0: add, 1: find , 2: quit");
-           int opcion  = entrada.getNextInt();
-           switch(opcion)
-           {
-               case 0:
-                tabla.add(new Persona(entrada));
-               break;
-               case 1:
-                findElement(tabla,entrada);
-               break;
-               case 2:
-               running=false;
-               break;
-               default:
-               Sytem.out.println("something went wrong, check yourself");
-           }
-       }
-   }
+    public static void main(String[] args) {
+        HashTable tabla = new HashTable(13);
+        Scanner entrada = new Scanner(System.in);
+        boolean running = true;
+        while (running) {
+            System.out.println("0: add, 1: find , 2: quit");
+            int opcion = entrada.nextInt();
+            switch (opcion) {
+            case 0:
+                Persona newPersona = new Persona(entrada);
+                tabla.Insert(newPersona,newPersona.getName());
+                break;
+            case 1:
+                findElement(tabla, entrada);
+                break;
+            case 2:
+                running = false;
+                break;
+            default:
+                System.out.println("something went wrong, check yourself");
+            }
+        }
+    }
 }

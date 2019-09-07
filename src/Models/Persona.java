@@ -22,13 +22,13 @@ public class Persona
     public void GetValuesFromInput(Scanner input)
     {
         System.out.println("introduce el nombre");
-        nombre = input.getNext();
+        nombre = input.next();  
         System.out.println("introduce el Apellido paterno");
-         nombre = input.getNext();
+        ap = input.next();
         System.out.println("introduce el Apellido materno");
-         nombre = input.getNext();
+        am = input.next();
         System.out.println("introduce la edad");
-         nombre = input.getNext();
+        edad = input.nextInt();
     }
     public String getName()
     {

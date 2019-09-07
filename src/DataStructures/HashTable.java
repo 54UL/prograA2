@@ -12,7 +12,7 @@ public class HashTable
    m_currentSize=0;
   }
   
-  public bool Insert(Object obj,String Id)
+  public boolean Insert(Object obj,String Id)
   {
      if(m_currentSize ==m_tableSize)
      return true;
@@ -25,6 +25,7 @@ public class HashTable
 
    ((ArrayList) m_hashTable[hashcode]).add(obj);
    m_currentSize++;
+   return false;
   }
 
   public List find(String ocurrence)

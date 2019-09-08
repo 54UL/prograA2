@@ -1,6 +1,25 @@
+
+
+
+
 public class Fraccion {
-    int num, den;
-    boolean divCero = false;
+    private int num, den;
+    private boolean divCero = false;
+    private String stringVal="";
+
+    stringNum = new String[]{"cero","un","dos","tres","cuatro","cinco","seis",
+    "siete","ocho","nueve","diez","once","doce",
+    "trece","catorce","quince","dieciseis","diecisiete","dieciocho","diecinueve","veinte",
+    "veintiun","veintidos","veintitres","veinticuatro","veinticinco","veintiseis","veintisiete",
+    "veintiocho","veintinueve","treinta","cuarenta","cincuenta","sesenta","setenta",
+    "ochenta","noventa","cien"};
+    intNum = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,
+    22,23,24,25,26,27,28,29,30,40,50,60,70,80,90,100};
+    stringDen = new String[]{"enteros","medios","tercios","cuartos","quintos","sextos","septimos","octavos",
+    "novenos","decimos","centesimos"};
+    intDen = new int[]{1,2,3,4,5,6,7,8,9,10,100};
+    stringOp = new String[]{"mas", "menos", "por", "entre"};
+
     
     public Fraccion(){
         num = 1;

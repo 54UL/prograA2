@@ -10,6 +10,7 @@ public class MainApp {
         int countingPp = 0;
         List resultados = tbl.find(in.next());
         System.out.println("chose a record by index");
+        
         for(int i =0; i< resultados.size(); i++)
         {
             Persona actualpp =(Persona) resultados.get(i);

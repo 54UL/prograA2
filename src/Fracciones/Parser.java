@@ -20,6 +20,8 @@ public class Parser
     private Fraccion[] OperatorStack = new int[32];
     private Fraccion   OperatorIndex =0;
 
+    private int TokenCounter =0; //Like a program counter
+
     private Token[]  TokenDataBase = 
     {
         //Numerales
@@ -61,7 +63,7 @@ public class Parser
         {"ochenta",80,TokenType.ShortNumeric},
         {"noventa",90,TokenType.ShortNumeric},
         {"cien",100,TokenType.ShortNumeric},
-        //Nominales
+        //Denominadores(los que terminan en avo son denominadores tambien)
         {"enteros",1,TokenType.LongNumeric},
         {"medios",2,TokenType.LongNumeric},
         {"tercios",3,TokenType.LongNumeric},
@@ -109,29 +111,53 @@ public class Parser
 
     private Fraccion ParseTokenArray(Tokens[] tokens)
     {
-        int pc =0;
+        TokenCounter =0;
+
         while(pc<tokens.length)
-        {
-            Token currentT = tokens[pc];
+        { 
+            Token currentT = tokens[TokenCounter];
             switch(currentT.type)
             {
                 case TokenType.ShortNumeric:
                 PushStack(currentT.value);
-                pc++;
+                TokenCounter++;
                 break;
                 
                 case TokenType.LongNumeric:
                 PushStack(currentT.value);
+                TokenCounter++;
                 break;
 
                 case TokenType.Conjuction:
+                PushStack(PopStack()+ tokens[TokenCounter+1].value); 
+                TokenCounter+=2;
                 break;
 
                 case TokenType.MathOperator:
+                    switch(currentT.value)
+                    {
+                        case 0: //Suma
+                        break;
+
+                        case 1://Resta
+                        break;
+
+                        case 2://Multiplicacion
+                        break;
+
+                        case 3://Division
+                        break;
+                    }
                 break;
             }
         } 
     }
+
+    public String toString(Token[] out)
+    {
+
+        return "in progress";
+    }   
 
     public String Solve(String Input)
     {
@@ -139,7 +165,7 @@ public class Parser
         //Split all spaces
         //Tokenize all the splitet strings
         //The tokens are gonna convert string into a frac
-        
+
         return true;
     }
 }

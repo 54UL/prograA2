@@ -8,7 +8,13 @@ public class MainApp {
     public static void findElement(HashTable tbl, Scanner in) {
         int findOption = 0;
         int countingPp = 0;
+
         List resultados = tbl.find(in.next());
+        if(resultados.size()==0)
+        {
+            System.out.println("intente de nuevo pls");    
+            return;
+        }
         System.out.println("chose a record by index");
         
         for(int i =0; i< resultados.size(); i++)

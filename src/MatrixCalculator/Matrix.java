@@ -178,6 +178,25 @@ public double det(Matriz m1){
 return 0;
 }
 
+public Matriz createFromInput(String texto,Scanner scan)
+{
+    texto = (texto == null)? "" : texto;
+    System.out.println("ingrese el tamaño de la " + texto + " matriz");
+    String tamaño = scan.next();
+    int [] tamañoInt = Arrays.stream(tamaño.split("x|\\*")).mapToInt(Integer::parseInt).toArray();
+    Matriz matriz = new Matriz(tamañoInt[0], tamañoInt[1]);
+    for (int indexF = 0; indexF < tamañoInt[0]; indexF++) {
+        for (int indexC = 0; indexC < tamañoInt[1]; indexC++) {
+            System.out.println("Ingrese el valor de la posicion [" + indexF + ", " + indexC + "]");
+            double val = scan.nextInt();
+            matriz.addElement(indexF, indexC, val);
+        }
+    }
+
+    System.out.print(matriz);
+    return matriz;
+}
+
 
     private double [][] m_matrix;
     private int indexF, indexC;

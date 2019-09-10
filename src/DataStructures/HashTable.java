@@ -31,7 +31,16 @@ public class HashTable
   public List find(String ocurrence)
   {
    int hashcode  = GenerateHashCode(ocurrence);
-   return (ArrayList)m_hashTable[hashcode];
+  
+      System.out.println("hash code for the search: "+hashcode);
+      Object resultingList = m_hashTable[hashcode];
+      if(resultingList==null)
+      {
+         System.out.println("ERORR:no hay resultados para la busqueda");
+         return new ArrayList();
+      }
+      else
+      return (ArrayList)resultingList;
   }
 
   private  int  GenerateHashCode(String stringHash)

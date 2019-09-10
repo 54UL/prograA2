@@ -127,7 +127,7 @@ public class Parser
     }
 
 
-    private Fraccion Execute(Tokens[] tokens,int indx=0)
+    private Fraccion Execute(Tokens[] tokens,int indx)
     {
         TokenCounter =indx;
         int terminosAgarrados=0;
@@ -140,7 +140,7 @@ public class Parser
             //dos terminos agregados, si es diferente de 0 sigmifica que
             //los valores que entran son puramente valores despues de un operador a/b mas {a/b}
             
-            if(terminosAgarrados==2 && indx!=0)
+            if(terminosAgarrados>=2 && indx!=0)
             {
               int b=PopStack();
               int a=PopStack();

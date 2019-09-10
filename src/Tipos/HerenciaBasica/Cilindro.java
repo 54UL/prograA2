@@ -2,8 +2,14 @@ package HerenciaBasica;
 
 public class Cilindro extends Circulo
 {
-    public Cilindro(){}
-    public Cilindro(double r,double h){setRadius(r); heigth =h;} 
+    public Cilindro(){
+        super(0);
+    }
+    public Cilindro(double r,double h)
+    {
+        super(r);
+        heigth =h;
+    } 
 
     public double getVolumen()
     {
@@ -13,7 +19,7 @@ public class Cilindro extends Circulo
     @Override
     public double getArea()
     {
-        return 3.0D;
+        return getRadius()*3.141516;
     }
  
     private double heigth;

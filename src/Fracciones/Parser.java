@@ -107,9 +107,29 @@ public class Parser
     
     private Tokens[] ParseTokens(String[] stringsAsTokens)
     {
-        //Checks if the strings matches in some of the three maps
-        //if 
+        List tokenList = new ArrayList; 
+        boolean error=false;
 
+        for(int strIndxT = 0; strIndxT<stringsAsTokens.length;strIndxT++)
+        {
+            for(int tokenIndx = 0; tokenIndx < tokens.length;tokenIndx++)
+            {
+                if(stringsAsTokens[strIndxT].compare(TokenDataBase[tokenIndx].header)==0)
+                {
+                    tokenList.add((Object)TokenDataBase[tokenIndx]);
+                }
+            }
+        }
+
+        stringsAsTokens.foreach((stringValue)->
+        {
+            TokenDataBase.foreach((currentToken)->
+            {
+              
+            });
+        });
+        //if 
+        
         //cuatro quintos entre dieciseis quintos
         // push(4)
         // push(5)
@@ -187,7 +207,7 @@ public class Parser
         } 
     }
 
-    public String toString(Token[] out)
+    public String toString(Fraccion in)
     {
 
         return "in progress";

@@ -1,7 +1,4 @@
 
-
-
-
 public class App
 {
     public static void main(String[]args)
@@ -16,8 +13,7 @@ public class App
             case 0:
                 
                 break;
-            case 1:
-                
+            case 1:  
                 break;
             case 2:
                 break;
